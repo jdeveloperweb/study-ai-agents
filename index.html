@@ -1793,33 +1793,257 @@
 
     <div class="card">
       <h3>Módulo 2: Arquiteturas de Agentes</h3>
-      <ul>
-        <li><strong>2.1 Taxonomia de Arquiteturas</strong>
-          <ul>
-            <li>Arquitetura Reativa Simples</li>
-            <li>Arquitetura Baseada em Modelo</li>
-            <li>Arquitetura Baseada em Objetivos</li>
-            <li>Arquitetura Baseada em Utilidade</li>
-            <li>Arquitetura de Aprendizado</li>
-          </ul>
-        </li>
-        <li><strong>2.2 Padrões Modernos</strong>
-          <ul>
-            <li>ReAct (Reasoning and Acting)</li>
-            <li>Chain-of-Thought (CoT) e variações</li>
-            <li>Tree of Thoughts (ToT)</li>
-            <li>Reflexion e auto-correção</li>
-            <li>AutoGPT e agentes autônomos</li>
-          </ul>
-        </li>
-        <li><strong>2.3 Implementação Prática</strong>
-          <ul>
-            <li>Escolha de arquitetura baseada no problema</li>
-            <li>Trade-offs entre complexidade e eficácia</li>
-            <li>Prototipagem rápida vs produção</li>
-          </ul>
-        </li>
-      </ul>
+
+      <h4>2.1 Taxonomia de Arquiteturas</h4>
+
+      <div class="info-box">
+        <h4>Por que a Arquitetura Importa?</h4>
+        <p>Assim como uma casa pode ser construída de várias formas (apartamento, casa térrea, sobrado), um agente de IA também pode ser estruturado de diferentes maneiras. A <strong>arquitetura</strong> define como o agente "pensa" e "decide" o que fazer.</p>
+        <p style="margin-top: 15px;">Escolher a arquitetura certa é fundamental: uma arquitetura simples pode não resolver problemas complexos, enquanto uma arquitetura muito sofisticada pode ser desnecessária e cara para tarefas simples.</p>
+      </div>
+
+      <h4>Os Cinco Tipos Clássicos de Arquitetura</h4>
+
+      <div class="highlight-box" style="margin-bottom: 25px;">
+        <p>Vamos conhecer as cinco arquiteturas fundamentais, ordenadas da mais simples à mais complexa. Cada uma adiciona uma nova "camada de inteligência" ao agente:</p>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Arquitetura</th>
+            <th>Como Funciona?</th>
+            <th>Exemplo Prático</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🎯 Reativa Simples</strong></td>
+            <td>O agente simplesmente <em>reage</em> ao que vê agora, sem memória do passado. É como um reflexo: vê algo → faz algo. Rápido, mas limitado.</td>
+            <td>Um robô aspirador que desvia ao detectar uma parede. Ele não lembra onde já limpou, apenas reage aos obstáculos que encontra.</td>
+          </tr>
+          <tr>
+            <td><strong>🧠 Baseada em Modelo</strong></td>
+            <td>O agente mantém um <em>modelo mental</em> do mundo. Ele lembra do que já viu e atualiza seu conhecimento conforme as coisas mudam.</td>
+            <td>Um GPS que conhece o mapa da cidade e atualiza a rota quando detecta trânsito. Ele tem um "modelo" do mundo (o mapa) e se adapta às mudanças.</td>
+          </tr>
+          <tr>
+            <td><strong>🎯 Baseada em Objetivos</strong></td>
+            <td>O agente tem <em>objetivos claros</em> e planeja ações para alcançá-los. Ele pensa: "O que preciso fazer para chegar lá?"</td>
+            <td>Um assistente que precisa agendar uma reunião: ele verifica agendas, compara horários, envia convites — tudo para atingir o objetivo de marcar a reunião.</td>
+          </tr>
+          <tr>
+            <td><strong>⚖️ Baseada em Utilidade</strong></td>
+            <td>O agente não apenas busca objetivos, mas escolhe a <em>melhor</em> opção considerando múltiplos fatores. Ele avalia trade-offs e otimiza decisões.</td>
+            <td>Um assistente de viagens que não só encontra voos disponíveis, mas escolhe o melhor equilíbrio entre preço, duração, horário e conforto conforme suas preferências.</td>
+          </tr>
+          <tr>
+            <td><strong>📚 Baseada em Aprendizado</strong></td>
+            <td>O agente <em>aprende</em> com a experiência. Ele melhora suas decisões ao longo do tempo observando o que funciona e o que não funciona.</td>
+            <td>Um chatbot de atendimento que, após milhares de conversas, aprende a identificar melhor as intenções dos clientes e responder de forma mais precisa.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box" style="margin-top: 25px;">
+        <h5>🔑 Qual arquitetura usar?</h5>
+        <p><strong>Regra de ouro:</strong> Comece simples e aumente a complexidade apenas se necessário.</p>
+        <ul style="margin-top: 10px;">
+          <li><strong>Tarefas simples e rápidas:</strong> Reativa Simples ou Baseada em Modelo</li>
+          <li><strong>Planejamento e múltiplos passos:</strong> Baseada em Objetivos</li>
+          <li><strong>Otimização e decisões complexas:</strong> Baseada em Utilidade</li>
+          <li><strong>Melhoria contínua:</strong> Baseada em Aprendizado</li>
+        </ul>
+      </div>
+
+      <h4>2.2 Padrões Modernos de Agentes de IA</h4>
+
+      <div class="info-box">
+        <h4>A Nova Geração de Arquiteturas</h4>
+        <p>Com o avanço dos Large Language Models (LLMs), surgiram novos padrões que combinam <strong>raciocínio</strong> e <strong>ação</strong> de formas inovadoras. Esses padrões são especialmente poderosos para agentes baseados em LLMs como GPT, Claude e Gemini.</p>
+      </div>
+
+      <h5 style="margin-top: 30px;">ReAct: Reasoning and Acting</h5>
+
+      <div class="highlight-box">
+        <p><strong>Ideia central:</strong> O agente alterna entre <em>pensar</em> (reasoning) e <em>agir</em> (acting). Ele verbaliza seu raciocínio antes de cada ação, tornando o processo transparente e mais preciso.</p>
+      </div>
+
+      <div class="code-block">
+        <strong>Exemplo de fluxo ReAct:</strong>
+        <pre>Pergunta: "Qual é o clima em São Paulo hoje?"
+
+Pensamento: "Preciso buscar informações atuais sobre o clima em São Paulo."
+Ação: buscar_clima("São Paulo")
+Observação: "Temperatura de 24°C, parcialmente nublado"
+
+Pensamento: "Tenho a informação necessária. Posso responder ao usuário."
+Ação: responder("O clima em São Paulo hoje está com 24°C e parcialmente nublado.")</pre>
+      </div>
+
+      <h5 style="margin-top: 30px;">Chain-of-Thought (CoT) e Variações</h5>
+
+      <div class="highlight-box">
+        <p><strong>Ideia central:</strong> O agente "pensa em voz alta", quebrando problemas complexos em passos menores. É como mostrar o raciocínio passo a passo.</p>
+      </div>
+
+      <table style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th>Variação</th>
+            <th>Funcionamento</th>
+            <th>Quando Usar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CoT Básico</strong></td>
+            <td>O modelo raciocina passo a passo antes de responder</td>
+            <td>Problemas matemáticos, lógica, raciocínio analítico</td>
+          </tr>
+          <tr>
+            <td><strong>Zero-shot CoT</strong></td>
+            <td>Adiciona "pense passo a passo" ao prompt</td>
+            <td>Quando não há exemplos disponíveis</td>
+          </tr>
+          <tr>
+            <td><strong>Few-shot CoT</strong></td>
+            <td>Fornece exemplos de raciocínio antes da tarefa</td>
+            <td>Tarefas específicas com padrões claros</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5 style="margin-top: 30px;">Tree of Thoughts (ToT)</h5>
+
+      <div class="highlight-box">
+        <p><strong>Ideia central:</strong> Em vez de seguir um único caminho de raciocínio, o agente explora <em>múltiplas possibilidades</em> simultaneamente, como uma árvore de decisões. Ele pode retroceder se um caminho não funcionar.</p>
+      </div>
+
+      <div class="info-box" style="margin-top: 20px;">
+        <p><strong>Exemplo:</strong> Ao resolver um quebra-cabeça complexo, o agente não segue apenas uma estratégia. Ele testa várias abordagens em paralelo, avalia qual está indo melhor e descarta as que não funcionam.</p>
+        <p style="margin-top: 10px;"><strong>Trade-off:</strong> Mais poderoso, mas consome mais recursos (tempo e tokens).</p>
+      </div>
+
+      <h5 style="margin-top: 30px;">Reflexion e Auto-correção</h5>
+
+      <div class="highlight-box">
+        <p><strong>Ideia central:</strong> O agente <em>reflete</em> sobre seus próprios erros e aprende com eles. Após cometer um erro, ele analisa o que deu errado e tenta novamente com uma abordagem melhorada.</p>
+      </div>
+
+      <div class="code-block">
+        <strong>Fluxo de Reflexion:</strong>
+        <pre>1. Tentativa: O agente executa uma tarefa
+2. Avaliação: Verifica se a solução está correta
+3. Reflexão: Se errou, analisa o motivo do erro
+4. Nova tentativa: Tenta novamente com uma estratégia melhorada
+5. Repetir até acertar ou atingir limite de tentativas</pre>
+      </div>
+
+      <h5 style="margin-top: 30px;">AutoGPT e Agentes Autônomos</h5>
+
+      <div class="highlight-box">
+        <p><strong>Ideia central:</strong> Agentes <em>totalmente autônomos</em> que decompõem objetivos complexos em sub-tarefas, executam ações, avaliam resultados e continuam até completar o objetivo — tudo sem intervenção humana constante.</p>
+      </div>
+
+      <div class="info-box" style="margin-top: 20px;">
+        <h5>🎯 Características dos Agentes Autônomos:</h5>
+        <ul style="margin-top: 10px;">
+          <li><strong>Auto-planejamento:</strong> Criam seu próprio plano de ação</li>
+          <li><strong>Persistência:</strong> Mantêm memória de longo prazo</li>
+          <li><strong>Auto-crítica:</strong> Avaliam seus próprios resultados</li>
+          <li><strong>Iteração:</strong> Refinam a abordagem ao longo do tempo</li>
+        </ul>
+        <p style="margin-top: 15px;"><strong>⚠️ Desafio:</strong> Podem "desviar do objetivo" ou entrar em loops. Por isso, geralmente incluem limites de iterações e supervisão humana.</p>
+      </div>
+
+      <h4>2.3 Implementação Prática: Escolhendo a Arquitetura Certa</h4>
+
+      <div class="info-box">
+        <h4>Como Decidir?</h4>
+        <p>Não existe uma "melhor" arquitetura. A escolha depende do <strong>problema que você está resolvendo</strong>, <strong>recursos disponíveis</strong> e <strong>requisitos do projeto</strong>.</p>
+      </div>
+
+      <table style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th>Cenário</th>
+            <th>Arquitetura Recomendada</th>
+            <th>Por quê?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chatbot simples de FAQ</td>
+            <td>Reativa Simples + RAG</td>
+            <td>Responde perguntas diretas sem precisar de planejamento complexo</td>
+          </tr>
+          <tr>
+            <td>Assistente de pesquisa científica</td>
+            <td>ReAct + Reflexion</td>
+            <td>Precisa raciocinar sobre fontes, verificar informações e corrigir erros</td>
+          </tr>
+          <tr>
+            <td>Agente de automação de tarefas</td>
+            <td>Baseada em Objetivos + Chain-of-Thought</td>
+            <td>Precisa planejar sequências de ações para atingir objetivos específicos</td>
+          </tr>
+          <tr>
+            <td>Sistema de recomendação personalizado</td>
+            <td>Baseada em Utilidade + Aprendizado</td>
+            <td>Deve otimizar múltiplos fatores e melhorar com feedback do usuário</td>
+          </tr>
+          <tr>
+            <td>Agente de desenvolvimento de software</td>
+            <td>AutoGPT + Tree of Thoughts</td>
+            <td>Precisa de autonomia para explorar soluções e iterar sobre código</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-box" style="margin-top: 25px;">
+        <h5>⚡ Regras Práticas para Implementação</h5>
+        <ol style="margin-top: 10px;">
+          <li><strong>Comece Simples:</strong> Implemente a arquitetura mais simples que resolve o problema. Adicione complexidade apenas se necessário.</li>
+          <li><strong>Prototipe Rápido:</strong> Construa um protótipo funcional rapidamente para validar a abordagem antes de investir em otimizações.</li>
+          <li><strong>Meça Performance:</strong> Defina métricas claras (latência, custo, precisão) e monitore constantemente.</li>
+          <li><strong>Itere com Feedback:</strong> Use feedback real de usuários para refinar a arquitetura ao longo do tempo.</li>
+        </ol>
+      </div>
+
+      <div class="info-box" style="margin-top: 25px;">
+        <h5>🔄 Trade-offs Comuns</h5>
+        <table style="margin-top: 15px;">
+          <thead>
+            <tr>
+              <th>Trade-off</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Complexidade vs. Manutenibilidade</strong></td>
+              <td>Arquiteturas complexas são mais poderosas, mas mais difíceis de debugar e manter</td>
+            </tr>
+            <tr>
+              <td><strong>Latência vs. Qualidade</strong></td>
+              <td>Padrões como ToT oferecem melhores resultados, mas demoram mais para responder</td>
+            </tr>
+            <tr>
+              <td><strong>Custo vs. Autonomia</strong></td>
+              <td>Agentes autônomos fazem mais iterações, consumindo mais tokens e aumentando custos</td>
+            </tr>
+            <tr>
+              <td><strong>Generalização vs. Especialização</strong></td>
+              <td>Arquiteturas genéricas funcionam em vários cenários, mas especializadas performam melhor em casos específicos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight-box" style="margin-top: 25px;">
+        <p><strong>💡 Dica Final:</strong> Em produção, é comum combinar múltiplas arquiteturas. Por exemplo: usar ReAct para raciocínio geral + RAG para busca de informações + Reflexion para auto-correção. O segredo está em <em>compor</em> padrões de forma inteligente.</p>
+      </div>
     </div>
 
     <div class="card">
