@@ -3821,6 +3821,15 @@ Ação: responder("O clima em São Paulo hoje está com 24°C e parcialmente nub
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Force visibility of cards and concept-boxes in the target section after scroll
+        setTimeout(() => {
+          const cardsInSection = targetElement.querySelectorAll('.card, .concept-box');
+          cardsInSection.forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          });
+        }, 800); // Wait for smooth scroll to complete
       }
     });
   });
