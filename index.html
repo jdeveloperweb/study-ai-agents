@@ -435,6 +435,7 @@
 
   <nav>
     <ul>
+      <li><a href="#topicos">Tópicos de Estudo</a></li>
       <li><a href="#fundamentos">Fundamentos</a></li>
       <li><a href="#arquitetura">Arquitetura</a></li>
       <li><a href="#capacidades">Capacidades</a></li>
@@ -443,6 +444,444 @@
       <li><a href="#desafios">Desafios</a></li>
     </ul>
   </nav>
+
+  <section id="topicos">
+    <h2>Roteiro de Estudos - Agentes de IA</h2>
+
+    <div class="card">
+      <h3>Módulo 1: Fundamentos Essenciais</h3>
+      <ul>
+        <li><strong>1.1 Introdução aos Agentes de IA</strong>
+          <ul>
+            <li>Definição e características principais (Autonomia, Reatividade, Proatividade, Habilidade Social)</li>
+            <li>Diferenças entre agentes e sistemas tradicionais</li>
+            <li>Casos de uso e aplicações práticas</li>
+          </ul>
+        </li>
+        <li><strong>1.2 Componentes Arquiteturais</strong>
+          <ul>
+            <li>Sistema Perceptual: captura e processamento de dados</li>
+            <li>Motor de Raciocínio: LLMs e sistemas híbridos</li>
+            <li>Base de Conhecimento: memória de curto e longo prazo</li>
+            <li>Sistema de Ação: ferramentas e APIs</li>
+            <li>Controlador de Execução: ciclo de vida e coordenação</li>
+          </ul>
+        </li>
+        <li><strong>1.3 Large Language Models (LLMs)</strong>
+          <ul>
+            <li>Fundamentos de modelos de linguagem</li>
+            <li>Principais modelos: GPT-4, Claude, Gemini, LLaMA</li>
+            <li>Limitações e capacidades</li>
+            <li>Context windows e gestão de tokens</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 2: Arquiteturas de Agentes</h3>
+      <ul>
+        <li><strong>2.1 Taxonomia de Arquiteturas</strong>
+          <ul>
+            <li>Arquitetura Reativa Simples</li>
+            <li>Arquitetura Baseada em Modelo</li>
+            <li>Arquitetura Baseada em Objetivos</li>
+            <li>Arquitetura Baseada em Utilidade</li>
+            <li>Arquitetura de Aprendizado</li>
+          </ul>
+        </li>
+        <li><strong>2.2 Padrões Modernos</strong>
+          <ul>
+            <li>ReAct (Reasoning and Acting)</li>
+            <li>Chain-of-Thought (CoT) e variações</li>
+            <li>Tree of Thoughts (ToT)</li>
+            <li>Reflexion e auto-correção</li>
+            <li>AutoGPT e agentes autônomos</li>
+          </ul>
+        </li>
+        <li><strong>2.3 Implementação Prática</strong>
+          <ul>
+            <li>Escolha de arquitetura baseada no problema</li>
+            <li>Trade-offs entre complexidade e eficácia</li>
+            <li>Prototipagem rápida vs produção</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 3: Ferramentas e Capacidades</h3>
+      <ul>
+        <li><strong>3.1 Design de Ferramentas</strong>
+          <ul>
+            <li>Princípios: granularidade, clareza, segurança</li>
+            <li>Taxonomia: busca, computacional, persistência, comunicação, automação</li>
+            <li>Function calling e tool use</li>
+            <li>Tratamento de erros e validação</li>
+          </ul>
+        </li>
+        <li><strong>3.2 Retrieval-Augmented Generation (RAG)</strong>
+          <ul>
+            <li>Arquitetura e pipeline RAG</li>
+            <li>Estratégias de chunking</li>
+            <li>Embeddings e vector stores</li>
+            <li>Busca semântica: dense, sparse, híbrida</li>
+            <li>Re-ranking e filtragem</li>
+            <li>RAG avançado: HyDE, Multi-Query, Self-RAG</li>
+          </ul>
+        </li>
+        <li><strong>3.3 Integração com Sistemas Externos</strong>
+          <ul>
+            <li>APIs REST e GraphQL</li>
+            <li>Bancos de dados e persistência</li>
+            <li>Web scraping e automação</li>
+            <li>Execução de código segura</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 4: Orquestração Multi-Agente</h3>
+      <ul>
+        <li><strong>4.1 Fundamentos de Sistemas Multi-Agente</strong>
+          <ul>
+            <li>Quando usar múltiplos agentes</li>
+            <li>Benefícios: especialização, modularidade, escalabilidade</li>
+            <li>Desafios e complexidades</li>
+          </ul>
+        </li>
+        <li><strong>4.2 Padrões de Coordenação</strong>
+          <ul>
+            <li>Hierárquico (Supervisor-Worker)</li>
+            <li>Sequencial (Pipeline)</li>
+            <li>Paralelo (Map-Reduce)</li>
+            <li>Colaborativo (Peer-to-Peer)</li>
+            <li>Debate Multi-Agente</li>
+            <li>Swarm Intelligence</li>
+          </ul>
+        </li>
+        <li><strong>4.3 Comunicação entre Agentes</strong>
+          <ul>
+            <li>Protocolos de mensagem</li>
+            <li>Memória compartilhada e Blackboard Pattern</li>
+            <li>Event-driven architecture</li>
+            <li>Sincronização e consenso</li>
+          </ul>
+        </li>
+        <li><strong>4.4 Frameworks e Ferramentas</strong>
+          <ul>
+            <li>LangGraph: grafos e fluxos</li>
+            <li>CrewAI: equipes de agentes</li>
+            <li>AutoGen: conversação multi-agente</li>
+            <li>Comparação e escolha de framework</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 5: Engenharia de Prompts</h3>
+      <ul>
+        <li><strong>5.1 Fundamentos</strong>
+          <ul>
+            <li>Anatomia de um prompt efetivo</li>
+            <li>System prompts vs user prompts</li>
+            <li>Few-shot learning e exemplos</li>
+            <li>Zero-shot vs few-shot prompting</li>
+          </ul>
+        </li>
+        <li><strong>5.2 Técnicas Avançadas</strong>
+          <ul>
+            <li>Constitutional AI e princípios</li>
+            <li>Prompt chaining</li>
+            <li>Meta-prompting</li>
+            <li>Structured outputs</li>
+            <li>Iteração e refinamento de prompts</li>
+          </ul>
+        </li>
+        <li><strong>5.3 Gestão de Contexto</strong>
+          <ul>
+            <li>Context window management</li>
+            <li>Summarização e compressão</li>
+            <li>Relevance filtering</li>
+            <li>Prompt caching</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 6: Memória e Estado</h3>
+      <ul>
+        <li><strong>6.1 Tipos de Memória</strong>
+          <ul>
+            <li>Memória de Trabalho (Working Memory)</li>
+            <li>Memória Episódica: histórico de interações</li>
+            <li>Memória Semântica: conhecimento do domínio</li>
+            <li>Memória Procedural: workflows e políticas</li>
+          </ul>
+        </li>
+        <li><strong>6.2 Implementação</strong>
+          <ul>
+            <li>Vector databases: Pinecone, Weaviate, Chroma</li>
+            <li>Graph databases para conhecimento estruturado</li>
+            <li>Estratégias de persistência</li>
+            <li>Indexação e recuperação eficiente</li>
+          </ul>
+        </li>
+        <li><strong>6.3 Compressão e Otimização</strong>
+          <ul>
+            <li>Técnicas de summarização</li>
+            <li>Entity extraction</li>
+            <li>Token-level compression</li>
+            <li>Sliding window strategies</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 7: Segurança e Confiabilidade</h3>
+      <ul>
+        <li><strong>7.1 Vetores de Ataque</strong>
+          <ul>
+            <li>Prompt Injection (direta e indireta)</li>
+            <li>Goal hijacking</li>
+            <li>Data exfiltration</li>
+            <li>Mitigações e defesas</li>
+          </ul>
+        </li>
+        <li><strong>7.2 Confiabilidade</strong>
+          <ul>
+            <li>Detecção e prevenção de alucinações</li>
+            <li>Grounding e fact-checking</li>
+            <li>Confidence scoring</li>
+            <li>Verificação por múltiplos agentes</li>
+          </ul>
+        </li>
+        <li><strong>7.3 Privacidade e Compliance</strong>
+          <ul>
+            <li>Data minimization</li>
+            <li>Anonymization de PII</li>
+            <li>LGPD, GDPR e conformidade</li>
+            <li>Audit logging</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 8: Otimização e Performance</h3>
+      <ul>
+        <li><strong>8.1 Redução de Latência</strong>
+          <ul>
+            <li>Streaming de respostas</li>
+            <li>Caching strategies</li>
+            <li>Paralelização de operações</li>
+            <li>Escolha de modelos adequados</li>
+          </ul>
+        </li>
+        <li><strong>8.2 Redução de Custos</strong>
+          <ul>
+            <li>Otimização de prompts</li>
+            <li>Routing inteligente de modelos</li>
+            <li>Batching de operações</li>
+            <li>Monitoramento de uso de tokens</li>
+          </ul>
+        </li>
+        <li><strong>8.3 Melhoria de Qualidade</strong>
+          <ul>
+            <li>Ensembling e voting</li>
+            <li>Validation loops</li>
+            <li>A/B testing sistemático</li>
+            <li>Fine-tuning e RLHF</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 9: Tratamento de Erros</h3>
+      <ul>
+        <li><strong>9.1 Categorias de Erros</strong>
+          <ul>
+            <li>Erros de ferramentas: APIs, timeouts, rate limiting</li>
+            <li>Erros de raciocínio: alucinação, loops, lógica incorreta</li>
+            <li>Erros de formato: parsing, schema validation</li>
+          </ul>
+        </li>
+        <li><strong>9.2 Estratégias de Recuperação</strong>
+          <ul>
+            <li>Self-healing agents</li>
+            <li>Circuit breakers</li>
+            <li>Retry policies e backoff</li>
+            <li>Checkpointing e rollback</li>
+            <li>Graceful degradation</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 10: Observabilidade e Debugging</h3>
+      <ul>
+        <li><strong>10.1 Logging e Monitoring</strong>
+          <ul>
+            <li>Structured logging</li>
+            <li>Distributed tracing</li>
+            <li>Métricas e dashboards</li>
+            <li>Alerting e anomaly detection</li>
+          </ul>
+        </li>
+        <li><strong>10.2 Debugging</strong>
+          <ul>
+            <li>Replay de execuções</li>
+            <li>Visualização de fluxos</li>
+            <li>Breakpoints e stepping</li>
+            <li>Análise de prompts e respostas</li>
+          </ul>
+        </li>
+        <li><strong>10.3 Testing</strong>
+          <ul>
+            <li>Unit tests para agentes</li>
+            <li>Integration testing multi-agente</li>
+            <li>Regression testing</li>
+            <li>Evaluation frameworks</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 11: Práticas de Desenvolvimento</h3>
+      <ul>
+        <li><strong>11.1 Ciclo de Desenvolvimento</strong>
+          <ul>
+            <li>Prototipagem rápida</li>
+            <li>Iteração baseada em feedback</li>
+            <li>Versionamento de prompts</li>
+            <li>CI/CD para agentes</li>
+          </ul>
+        </li>
+        <li><strong>11.2 Documentação</strong>
+          <ul>
+            <li>Documentação de comportamento</li>
+            <li>Catálogo de ferramentas</li>
+            <li>Guias de troubleshooting</li>
+            <li>Runbooks operacionais</li>
+          </ul>
+        </li>
+        <li><strong>11.3 Deployment</strong>
+          <ul>
+            <li>Ambientes: dev, staging, production</li>
+            <li>Feature flags</li>
+            <li>Gradual rollout</li>
+            <li>Rollback strategies</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 12: Casos de Uso e Aplicações</h3>
+      <ul>
+        <li><strong>12.1 Assistentes Virtuais</strong>
+          <ul>
+            <li>Atendimento ao cliente</li>
+            <li>Assistentes pessoais</li>
+            <li>Suporte técnico automatizado</li>
+          </ul>
+        </li>
+        <li><strong>12.2 Automação de Processos</strong>
+          <ul>
+            <li>RPA inteligente</li>
+            <li>Workflows complexos</li>
+            <li>Data processing e ETL</li>
+          </ul>
+        </li>
+        <li><strong>12.3 Análise e Pesquisa</strong>
+          <ul>
+            <li>Research assistants</li>
+            <li>Code generation e review</li>
+            <li>Document analysis</li>
+          </ul>
+        </li>
+        <li><strong>12.4 Creative AI</strong>
+          <ul>
+            <li>Geração de conteúdo</li>
+            <li>Marketing e copywriting</li>
+            <li>Design e brainstorming</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 13: Ética e Governança</h3>
+      <ul>
+        <li><strong>13.1 Princípios Éticos</strong>
+          <ul>
+            <li>Transparência e explicabilidade</li>
+            <li>Fairness e mitigação de viés</li>
+            <li>Autonomia e controle humano</li>
+            <li>Accountability e responsabilidade</li>
+          </ul>
+        </li>
+        <li><strong>13.2 Governança</strong>
+          <ul>
+            <li>Políticas de uso aceitável</li>
+            <li>Comitês de ética</li>
+            <li>Auditorias regulares</li>
+            <li>Processos de escalação</li>
+          </ul>
+        </li>
+        <li><strong>13.3 Impacto Social</strong>
+          <ul>
+            <li>Futuro do trabalho</li>
+            <li>Democratização de IA</li>
+            <li>Considerações de sustentabilidade</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Módulo 14: Tendências e Futuro</h3>
+      <ul>
+        <li><strong>14.1 Tecnologias Emergentes</strong>
+          <ul>
+            <li>Agentes multimodais (visão + áudio + texto)</li>
+            <li>Agentes incorporados em aplicações</li>
+            <li>Aprendizado contínuo e adaptação</li>
+            <li>Reasoning models avançados</li>
+          </ul>
+        </li>
+        <li><strong>14.2 Pesquisa em Andamento</strong>
+          <ul>
+            <li>Interpretabilidade profunda</li>
+            <li>Generalização cross-domain</li>
+            <li>Eficiência computacional</li>
+            <li>Alinhamento de valores</li>
+          </ul>
+        </li>
+        <li><strong>14.3 Direções Futuras</strong>
+          <ul>
+            <li>AGI e superinteligência</li>
+            <li>Colaboração humano-IA avançada</li>
+            <li>Sistemas cognitivos integrados</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="highlight-box">
+      <h4>Como Usar Este Roteiro</h4>
+      <p><strong>Sugestão de Estudo:</strong> Este roteiro está organizado em ordem progressiva de complexidade. Recomenda-se seguir os módulos sequencialmente, mas é possível pular para tópicos específicos conforme a necessidade.</p>
+      <p><strong>Prática:</strong> Para cada módulo, implemente projetos práticos pequenos antes de avançar. A teoria é importante, mas a prática consolida o aprendizado.</p>
+      <p><strong>Enriquecimento Contínuo:</strong> Este documento será expandido gradualmente. Cada tópico marcado representa uma área de estudo que pode ser aprofundada com exemplos de código, diagramas e casos práticos.</p>
+    </div>
+  </section>
 
   <section id="fundamentos">
     <h2>Fundamentos de Agentes de IA</h2>
