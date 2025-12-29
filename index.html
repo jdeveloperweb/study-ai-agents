@@ -450,32 +450,927 @@
 
     <div class="card">
       <h3>Módulo 1: Fundamentos Essenciais</h3>
-      <ul>
-        <li><strong>1.1 Introdução aos Agentes de IA</strong>
-          <ul>
-            <li>Definição e características principais (Autonomia, Reatividade, Proatividade, Habilidade Social)</li>
-            <li>Diferenças entre agentes e sistemas tradicionais</li>
-            <li>Casos de uso e aplicações práticas</li>
+
+      <h4>1.1 Introdução aos Agentes de IA</h4>
+
+      <div class="info-box">
+        <h4>Definição Formal</h4>
+        <p>Um <strong>Agente de IA</strong> é uma entidade computacional que opera em um ambiente, percebe seu estado através de sensores, toma decisões baseadas em seu conhecimento e objetivos, e executa ações através de atuadores para modificar o ambiente e alcançar seus objetivos.</p>
+        <p style="margin-top: 15px;"><em>Formalmente:</em> <span class="term">Agent: Perceptions* → Actions</span></p>
+      </div>
+
+      <h4>Características Fundamentais dos Agentes</h4>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th>Descrição</th>
+            <th>Exemplo Prático</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Autonomia</strong></td>
+            <td>Opera sem intervenção humana contínua, tomando decisões baseadas em seu estado interno, conhecimento e objetivos</td>
+            <td>Um agente de trading que executa operações financeiras baseado em análise de mercado sem aprovação para cada transação</td>
+          </tr>
+          <tr>
+            <td><strong>Reatividade</strong></td>
+            <td>Percebe mudanças no ambiente e responde de forma oportuna e apropriada</td>
+            <td>Chatbot que detecta frustração do usuário e escalona para atendimento humano</td>
+          </tr>
+          <tr>
+            <td><strong>Proatividade</strong></td>
+            <td>Toma iniciativa e age de forma antecipada para alcançar objetivos, não apenas reage</td>
+            <td>Assistente que sugere tarefas prioritárias com base em deadlines e dependências antes que sejam solicitadas</td>
+          </tr>
+          <tr>
+            <td><strong>Habilidade Social</strong></td>
+            <td>Interage com outros agentes (humanos ou IA) através de protocolos de comunicação</td>
+            <td>Agente que negocia com outros agentes em um sistema de leilão distribuído</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Taxonomia de Agentes Segundo Russell & Norvig</h4>
+
+      <div class="architecture-diagram">
+        <h4 style="color: var(--highlight); margin-bottom: 25px;">Evolução de Complexidade</h4>
+
+        <div class="layer">
+          <strong>1. Agente Reativo Simples</strong><br>
+          <span style="font-size: 0.9rem;">Percepção → Regra Condição-Ação → Ação</span><br>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Ex: Termostato, filtros de spam básicos</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+
+        <div class="layer">
+          <strong>2. Agente Baseado em Modelo</strong><br>
+          <span style="font-size: 0.9rem;">Percepção + Modelo do Mundo → Ação</span><br>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Ex: Robô aspirador que mapeia ambiente</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+
+        <div class="layer">
+          <strong>3. Agente Baseado em Objetivos</strong><br>
+          <span style="font-size: 0.9rem;">Percepção + Modelo + Objetivos → Planejamento → Ação</span><br>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Ex: GPS que planeja rotas para destino</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+
+        <div class="layer">
+          <strong>4. Agente Baseado em Utilidade</strong><br>
+          <span style="font-size: 0.9rem;">Percepção + Modelo + Função Utilidade → Otimização → Ação</span><br>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Ex: Agente que otimiza rota considerando tempo, custo e conforto</span>
+        </div>
+        <div class="flow-arrow">↓</div>
+
+        <div class="layer">
+          <strong>5. Agente de Aprendizado</strong><br>
+          <span style="font-size: 0.9rem;">Todos os anteriores + Elemento de Aprendizado + Feedback</span><br>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Ex: Agentes LLM com fine-tuning ou RLHF</span>
+        </div>
+      </div>
+
+      <h4>Comparação: Agentes vs Sistemas Tradicionais</h4>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Aspecto</th>
+            <th>Sistema Tradicional</th>
+            <th>Agente de IA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Controle</strong></td>
+            <td>Fluxo determinístico e pré-programado</td>
+            <td>Comportamento emergente baseado em contexto</td>
+          </tr>
+          <tr>
+            <td><strong>Adaptabilidade</strong></td>
+            <td>Requer reprogramação para novos cenários</td>
+            <td>Generaliza para situações não previstas</td>
+          </tr>
+          <tr>
+            <td><strong>Interface</strong></td>
+            <td>Menus, formulários, APIs estruturadas</td>
+            <td>Linguagem natural, multimodal</td>
+          </tr>
+          <tr>
+            <td><strong>Decisão</strong></td>
+            <td>Regras explícitas (if-then-else)</td>
+            <td>Inferência probabilística, raciocínio</td>
+          </tr>
+          <tr>
+            <td><strong>Tratamento de Erros</strong></td>
+            <td>Exceções explicitamente codificadas</td>
+            <td>Auto-recuperação e adaptação</td>
+          </tr>
+          <tr>
+            <td><strong>Desenvolvimento</strong></td>
+            <td>Código imperativo detalhado</td>
+            <td>Especificação de objetivos e capacidades</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-box">
+        <h4>💡 Exemplo Comparativo: Sistema de Atendimento ao Cliente</h4>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+          <div>
+            <h5 style="color: var(--accent-light);">Sistema Tradicional (IVR)</h5>
+            <pre style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.9rem; overflow-x: auto;">
+"Pressione 1 para vendas"
+"Pressione 2 para suporte"
+  "Pressione 1 para problema técnico"
+  "Pressione 2 para cobrança"
+    "Pressione 1 para fatura"
+    "Pressione 2 para pagamento"
+...
+            </pre>
+            <p style="font-size: 0.95rem; margin-top: 10px;"><strong>Limitações:</strong> Fluxo rígido, não entende contexto, frustração do usuário</p>
+          </div>
+
+          <div>
+            <h5 style="color: var(--accent-light);">Agente de IA</h5>
+            <pre style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.9rem; overflow-x: auto;">
+Usuário: "Minha fatura está errada"
+
+Agente:
+1. Identifica entidade: "fatura"
+2. Classifica intenção: problema/reclamação
+3. Busca contexto: histórico do cliente
+4. Raciocina: valor divergente detectado
+5. Propõe solução: correção + justificativa
+            </pre>
+            <p style="font-size: 0.95rem; margin-top: 10px;"><strong>Benefícios:</strong> Compreensão contextual, resolução direta, personalização</p>
+          </div>
+        </div>
+      </div>
+
+      <h4>Casos de Uso e Aplicações Práticas</h4>
+
+      <div class="grid">
+        <div class="concept-box">
+          <h4>🏢 Empresarial</h4>
+          <ul style="font-size: 0.95rem; margin-top: 10px;">
+            <li><strong>Customer Support:</strong> Triagem, resolução de tickets, escalação inteligente</li>
+            <li><strong>RPA Cognitivo:</strong> Automação de processos com decisões contextuais</li>
+            <li><strong>Análise de Dados:</strong> Geração de insights, relatórios automáticos</li>
+            <li><strong>Recrutamento:</strong> Triagem de candidatos, agendamento de entrevistas</li>
           </ul>
-        </li>
-        <li><strong>1.2 Componentes Arquiteturais</strong>
-          <ul>
-            <li>Sistema Perceptual: captura e processamento de dados</li>
-            <li>Motor de Raciocínio: LLMs e sistemas híbridos</li>
-            <li>Base de Conhecimento: memória de curto e longo prazo</li>
-            <li>Sistema de Ação: ferramentas e APIs</li>
-            <li>Controlador de Execução: ciclo de vida e coordenação</li>
+        </div>
+
+        <div class="concept-box">
+          <h4>👨‍💻 Desenvolvimento</h4>
+          <ul style="font-size: 0.95rem; margin-top: 10px;">
+            <li><strong>Code Generation:</strong> Geração de código a partir de especificações</li>
+            <li><strong>Code Review:</strong> Análise automática de qualidade e segurança</li>
+            <li><strong>Documentation:</strong> Geração e manutenção de documentação técnica</li>
+            <li><strong>Testing:</strong> Geração de casos de teste, debugging assistido</li>
           </ul>
-        </li>
-        <li><strong>1.3 Large Language Models (LLMs)</strong>
-          <ul>
-            <li>Fundamentos de modelos de linguagem</li>
-            <li>Principais modelos: GPT-4, Claude, Gemini, LLaMA</li>
-            <li>Limitações e capacidades</li>
-            <li>Context windows e gestão de tokens</li>
+        </div>
+
+        <div class="concept-box">
+          <h4>🔬 Pesquisa</h4>
+          <ul style="font-size: 0.95rem; margin-top: 10px;">
+            <li><strong>Literature Review:</strong> Busca e síntese de papers acadêmicos</li>
+            <li><strong>Data Analysis:</strong> Análise exploratória automatizada</li>
+            <li><strong>Hypothesis Generation:</strong> Sugestão de hipóteses baseadas em dados</li>
+            <li><strong>Experiment Design:</strong> Planejamento de experimentos</li>
           </ul>
-        </li>
-      </ul>
+        </div>
+
+        <div class="concept-box">
+          <h4>🎯 Pessoal</h4>
+          <ul style="font-size: 0.95rem; margin-top: 10px;">
+            <li><strong>Assistentes Virtuais:</strong> Agendamento, lembretes, organização</li>
+            <li><strong>Educação:</strong> Tutoria personalizada, explicação de conceitos</li>
+            <li><strong>Saúde:</strong> Monitoramento, lembretes de medicação, triagem</li>
+            <li><strong>Finanças:</strong> Gestão de orçamento, análise de investimentos</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr style="border: 1px solid var(--border); margin: 50px 0;">
+
+      <h4>1.2 Componentes Arquiteturais</h4>
+
+      <div class="info-box">
+        <h4>Arquitetura de Referência de um Agente de IA</h4>
+        <p>A arquitetura de um agente moderno baseado em LLM pode ser decomposta em cinco componentes principais que trabalham em conjunto através de um ciclo de controle:</p>
+      </div>
+
+      <div class="architecture-diagram" style="text-align: left; padding: 30px;">
+        <pre style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 1.6; color: var(--text);">
+┌─────────────────────────────────────────────────────────────────────────┐
+│                          <strong style="color: var(--highlight);">CONTROLADOR DE EXECUÇÃO</strong>                           │
+│  ┌──────────────────────────────────────────────────────────────────┐   │
+│  │  Loop de Controle: Percepção → Raciocínio → Ação → Avaliação    │   │
+│  └──────────────────────────────────────────────────────────────────┘   │
+└────────────┬────────────────────────────────────────────────┬───────────┘
+             │                                                │
+             ▼                                                ▼
+┌─────────────────────────┐                      ┌─────────────────────────┐
+│   <strong style="color: var(--accent);">SISTEMA PERCEPTUAL</strong>   │                      │   <strong style="color: var(--accent);">SISTEMA DE AÇÃO</strong>     │
+│                         │                      │                         │
+│  • Sensores/APIs        │                      │  • Ferramentas/Tools    │
+│  • Pré-processamento    │                      │  • APIs Externas        │
+│  • Extração Features    │◄─────────────────────┤  • Geração de Saídas    │
+│  • Gestão de Contexto   │                      │  • Execução de Código   │
+└─────────┬───────────────┘                      └───────────┬─────────────┘
+          │                                                  │
+          │              ┌──────────────────────┐            │
+          │              │   <strong style="color: var(--highlight);">MOTOR DE RACIOCÍNIO</strong> │            │
+          └─────────────►│                      │◄───────────┘
+                         │  • Large Language    │
+                         │    Model (LLM)       │
+                         │  • Planejamento      │
+                         │  • Tomada de Decisão │
+                         │  • Raciocínio Causal │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │ <strong style="color: var(--accent);">BASE DE CONHECIMENTO</strong> │
+                         │                      │
+                         │  • Memória Curto     │
+                         │    Prazo (Working)   │
+                         │  • Memória Longo     │
+                         │    Prazo (Episódica) │
+                         │  • Conhecimento      │
+                         │    Semântico (RAG)   │
+                         │  • Memória           │
+                         │    Procedural        │
+                         └──────────────────────┘
+        </pre>
+      </div>
+
+      <h4>Detalhamento dos Componentes</h4>
+
+      <div class="card" style="background: linear-gradient(135deg, rgba(233, 69, 96, 0.05) 0%, rgba(22, 33, 62, 0.3) 100%);">
+        <h4 style="color: var(--accent-light);">🎯 1. Sistema Perceptual</h4>
+        <p><strong>Função:</strong> Capturar e processar informações do ambiente, transformando dados brutos em representações utilizáveis pelo agente.</p>
+
+        <h5 style="margin-top: 20px; color: var(--highlight);">Componentes:</h5>
+        <ul>
+          <li><strong>Sensores/Interfaces:</strong>
+            <ul>
+              <li>APIs REST/GraphQL para integração com sistemas externos</li>
+              <li>Webhooks para eventos em tempo real</li>
+              <li>Interfaces de usuário (chat, voz, GUI)</li>
+              <li>Streams de dados (logs, métricas, IoT)</li>
+            </ul>
+          </li>
+          <li><strong>Pré-processamento:</strong>
+            <ul>
+              <li>Normalização de formatos (JSON, XML, CSV → estrutura unificada)</li>
+              <li>Limpeza de dados (remoção de ruído, tratamento de valores faltantes)</li>
+              <li>Validação e sanitização de inputs</li>
+              <li>Extração de texto de documentos (PDF, DOC, HTML)</li>
+            </ul>
+          </li>
+          <li><strong>Extração de Características:</strong>
+            <ul>
+              <li>Identificação de entidades (NER - Named Entity Recognition)</li>
+              <li>Análise de sentimento</li>
+              <li>Classificação de intenções</li>
+              <li>Extração de metadados (timestamps, autores, tags)</li>
+            </ul>
+          </li>
+          <li><strong>Gestão de Contexto:</strong>
+            <ul>
+              <li>Manutenção de histórico de interações</li>
+              <li>Tracking de estado da conversa</li>
+              <li>Gestão de sessões e usuários</li>
+              <li>Agregação temporal de eventos</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="highlight-box" style="margin-top: 20px;">
+          <h5>Exemplo Prático: Pipeline Perceptual</h5>
+          <pre style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.85rem; overflow-x: auto;">
+<span style="color: #ff6b6b;">// Pseudocódigo de Sistema Perceptual</span>
+
+<span style="color: #51cf66;">class</span> PerceptualSystem:
+    <span style="color: #51cf66;">def</span> <span style="color: #ffd369;">perceive</span>(raw_input):
+        <span style="color: #a8a8b8;">// 1. Validação</span>
+        validated = validate_input(raw_input)
+
+        <span style="color: #a8a8b8;">// 2. Normalização</span>
+        normalized = normalize_format(validated)
+
+        <span style="color: #a8a8b8;">// 3. Extração de Features</span>
+        entities = extract_entities(normalized)
+        intent = classify_intent(normalized)
+        sentiment = analyze_sentiment(normalized)
+
+        <span style="color: #a8a8b8;">// 4. Enriquecimento Contextual</span>
+        context = retrieve_context(user_id, session_id)
+
+        <span style="color: #a8a8b8;">// 5. Estruturação</span>
+        perception = {
+            "text": normalized,
+            "entities": entities,
+            "intent": intent,
+            "sentiment": sentiment,
+            "context": context,
+            "metadata": extract_metadata(raw_input)
+        }
+
+        <span style="color: #51cf66;">return</span> perception
+          </pre>
+        </div>
+      </div>
+
+      <div class="card" style="background: linear-gradient(135deg, rgba(255, 211, 105, 0.05) 0%, rgba(22, 33, 62, 0.3) 100%); margin-top: 30px;">
+        <h4 style="color: var(--highlight);">🧠 2. Motor de Raciocínio</h4>
+        <p><strong>Função:</strong> O núcleo cognitivo do agente, responsável por processar percepções, raciocinar sobre elas e tomar decisões sobre quais ações executar.</p>
+
+        <h5 style="margin-top: 20px; color: var(--highlight);">Componentes:</h5>
+        <ul>
+          <li><strong>Large Language Model (LLM):</strong>
+            <ul>
+              <li>Modelo foundation pré-treinado (GPT-4, Claude, Gemini, etc.)</li>
+              <li>Compreensão de linguagem natural em múltiplos idiomas</li>
+              <li>Capacidade de seguir instruções complexas</li>
+              <li>Geração de texto coerente e contextualmente apropriado</li>
+            </ul>
+          </li>
+          <li><strong>Sistema de Planejamento:</strong>
+            <ul>
+              <li>Decomposição de objetivos complexos em sub-tarefas</li>
+              <li>Ordenação de ações considerando dependências</li>
+              <li>Estimativa de recursos necessários (tempo, tokens, custos)</li>
+              <li>Seleção de estratégias (ReAct, CoT, ToT, etc.)</li>
+            </ul>
+          </li>
+          <li><strong>Tomada de Decisão:</strong>
+            <ul>
+              <li>Avaliação de alternativas baseada em utilidade esperada</li>
+              <li>Gestão de incertezas e probabilidades</li>
+              <li>Trade-offs entre exploração e exploitation</li>
+              <li>Priorização baseada em objetivos e restrições</li>
+            </ul>
+          </li>
+          <li><strong>Raciocínio Causal:</strong>
+            <ul>
+              <li>Inferência de relações causa-efeito</li>
+              <li>Previsão de consequências de ações</li>
+              <li>Diagnóstico de problemas (reasoning backward)</li>
+              <li>Contrafactuais ("o que teria acontecido se...")</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="info-box" style="margin-top: 20px;">
+          <h5>Exemplo: Ciclo de Raciocínio ReAct</h5>
+          <pre style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.85rem; overflow-x: auto;">
+<span style="color: #a8a8b8;">Iteração 1:</span>
+<span style="color: #ffd369;">Pensamento:</span> "Preciso buscar informações sobre os preços atuais de ações da empresa X"
+<span style="color: #51cf66;">Ação:</span> search_stock_price(symbol="X")
+<span style="color: #6495ed;">Observação:</span> "Ação X: $150.25 (+2.3% hoje)"
+
+<span style="color: #a8a8b8;">Iteração 2:</span>
+<span style="color: #ffd369;">Pensamento:</span> "Tenho o preço atual. Agora preciso comparar com dados históricos para identificar tendências"
+<span style="color: #51cf66;">Ação:</span> get_historical_data(symbol="X", period="30d")
+<span style="color: #6495ed;">Observação:</span> [dados de 30 dias com tendência de alta de 15%]
+
+<span style="color: #a8a8b8;">Iteração 3:</span>
+<span style="color: #ffd369;">Pensamento:</span> "Com base nos dados, há tendência de alta sustentada. Posso formular recomendação fundamentada"
+<span style="color: #51cf66;">Ação:</span> finish(recommendation="Baseado na análise de 30 dias, a ação X apresenta tendência de alta de 15%, com valorização de 2.3% hoje. Recomendação: COMPRA moderada.")
+          </pre>
+        </div>
+      </div>
+
+      <div class="card" style="background: linear-gradient(135deg, rgba(100, 150, 255, 0.05) 0%, rgba(22, 33, 62, 0.3) 100%); margin-top: 30px;">
+        <h4 style="color: #6495ed;">💾 3. Base de Conhecimento</h4>
+        <p><strong>Função:</strong> Armazenar e gerenciar diferentes tipos de memória que o agente utiliza para fundamentar suas decisões.</p>
+
+        <table style="margin-top: 20px;">
+          <thead>
+            <tr>
+              <th>Tipo de Memória</th>
+              <th>Duração</th>
+              <th>Conteúdo</th>
+              <th>Tecnologia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Working Memory</strong></td>
+              <td>Duração da tarefa</td>
+              <td>Contexto imediato, mensagens recentes, estado atual</td>
+              <td>Context window do LLM</td>
+            </tr>
+            <tr>
+              <td><strong>Episódica</strong></td>
+              <td>Sessões ou indefinida</td>
+              <td>Histórico de interações, conversas anteriores</td>
+              <td>Vector DB (embeddings de conversas)</td>
+            </tr>
+            <tr>
+              <td><strong>Semântica</strong></td>
+              <td>Indefinida</td>
+              <td>Fatos, conhecimento do domínio, documentação</td>
+              <td>RAG (Vector DB + chunking)</td>
+            </tr>
+            <tr>
+              <td><strong>Procedural</strong></td>
+              <td>Indefinida</td>
+              <td>Como executar tarefas, workflows, políticas</td>
+              <td>Prompts, ferramentas, fine-tuning</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h5 style="margin-top: 25px; color: var(--highlight);">Exemplo: Arquitetura de Memória Híbrida</h5>
+        <pre style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.85rem; overflow-x: auto;">
+<span style="color: #51cf66;">class</span> KnowledgeBase:
+    <span style="color: #51cf66;">def</span> __init__(self):
+        self.working_memory = []  <span style="color: #a8a8b8;"># Lista de mensagens recentes</span>
+        self.vector_db = VectorDatabase()  <span style="color: #a8a8b8;"># Pinecone, Weaviate, Chroma</span>
+        self.graph_db = GraphDatabase()  <span style="color: #a8a8b8;"># Neo4j para conhecimento estruturado</span>
+
+    <span style="color: #51cf66;">def</span> <span style="color: #ffd369;">retrieve_relevant_context</span>(self, query, k=5):
+        <span style="color: #a8a8b8;">// 1. Working Memory: sempre incluir</span>
+        recent_context = self.working_memory[-10:]
+
+        <span style="color: #a8a8b8;">// 2. Memória Episódica: buscar interações similares passadas</span>
+        similar_interactions = self.vector_db.similarity_search(
+            query,
+            namespace="episodic",
+            k=k
+        )
+
+        <span style="color: #a8a8b8;">// 3. Memória Semântica: buscar conhecimento relevante</span>
+        relevant_docs = self.vector_db.similarity_search(
+            query,
+            namespace="semantic",
+            k=k
+        )
+
+        <span style="color: #a8a8b8;">// 4. Conhecimento Estruturado: buscar relações em grafo</span>
+        entities = extract_entities(query)
+        related_facts = self.graph_db.query_neighborhood(entities)
+
+        <span style="color: #51cf66;">return</span> {
+            "working": recent_context,
+            "episodic": similar_interactions,
+            "semantic": relevant_docs,
+            "structured": related_facts
+        }
+        </pre>
+      </div>
+
+      <div class="card" style="background: linear-gradient(135deg, rgba(81, 207, 102, 0.05) 0%, rgba(22, 33, 62, 0.3) 100%); margin-top: 30px;">
+        <h4 style="color: #51cf66;">⚙️ 4. Sistema de Ação</h4>
+        <p><strong>Função:</strong> Executar as decisões do agente através de ferramentas, APIs e interfaces com sistemas externos.</p>
+
+        <h5 style="margin-top: 20px; color: var(--highlight);">Categorias de Ferramentas:</h5>
+
+        <div class="grid" style="margin-top: 15px;">
+          <div style="background: var(--secondary); padding: 20px; border-radius: 8px; border-left: 4px solid #51cf66;">
+            <h5 style="color: #51cf66;">🔍 Busca & Recuperação</h5>
+            <ul style="font-size: 0.9rem; margin-top: 10px;">
+              <li>Web search (Google, Bing)</li>
+              <li>Busca semântica em docs</li>
+              <li>Consulta a APIs de dados</li>
+              <li>Database queries</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--secondary); padding: 20px; border-radius: 8px; border-left: 4px solid #ffd369;">
+            <h5 style="color: #ffd369;">🧮 Computação</h5>
+            <ul style="font-size: 0.9rem; margin-top: 10px;">
+              <li>Python interpreter</li>
+              <li>Calculadora</li>
+              <li>Code execution sandbox</li>
+              <li>Data transformation</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--secondary); padding: 20px; border-radius: 8px; border-left: 4px solid #6495ed;">
+            <h5 style="color: #6495ed;">💬 Comunicação</h5>
+            <ul style="font-size: 0.9rem; margin-top: 10px;">
+              <li>Email (SMTP)</li>
+              <li>Slack, Teams</li>
+              <li>SMS, WhatsApp</li>
+              <li>Webhooks</li>
+            </ul>
+          </div>
+
+          <div style="background: var(--secondary); padding: 20px; border-radius: 8px; border-left: 4px solid #ff6b6b;">
+            <h5 style="color: #ff6b6b;">🔧 Automação</h5>
+            <ul style="font-size: 0.9rem; margin-top: 10px;">
+              <li>Browser automation</li>
+              <li>RPA tasks</li>
+              <li>File operations</li>
+              <li>System commands</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="warning-box" style="margin-top: 20px;">
+          <h5>⚠️ Princípios de Design de Ferramentas</h5>
+          <ul>
+            <li><strong>Atômicas:</strong> Cada ferramenta deve fazer uma coisa bem feita</li>
+            <li><strong>Idempotentes:</strong> Múltiplas execuções com mesmos parâmetros devem ter mesmo efeito</li>
+            <li><strong>Descritivas:</strong> Nome e descrição devem ser autoexplicativos para o LLM</li>
+            <li><strong>Validadas:</strong> Parâmetros devem ser validados e erros informativos</li>
+            <li><strong>Seguras:</strong> Ferramentas destrutivas devem requerer confirmação</li>
+          </ul>
+        </div>
+
+        <h5 style="margin-top: 25px;">Exemplo: Definição de Ferramenta</h5>
+        <pre style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.85rem; overflow-x: auto;">
+{
+  "<span style="color: #ffd369;">name</span>": "web_search",
+  "<span style="color: #ffd369;">description</span>": "Busca informações na web usando o Google. Use quando precisar de informações atualizadas que não estão no seu conhecimento. Retorna os top 5 resultados mais relevantes.",
+  "<span style="color: #ffd369;">parameters</span>": {
+    "<span style="color: #51cf66;">type</span>": "object",
+    "<span style="color: #51cf66;">properties</span>": {
+      "<span style="color: #6495ed;">query</span>": {
+        "<span style="color: #ff6b6b;">type</span>": "string",
+        "<span style="color: #ff6b6b;">description</span>": "Termo de busca. Seja específico e use palavras-chave relevantes."
+      },
+      "<span style="color: #6495ed;">num_results</span>": {
+        "<span style="color: #ff6b6b;">type</span>": "integer",
+        "<span style="color: #ff6b6b;">description</span>": "Número de resultados a retornar (padrão: 5, máximo: 10)",
+        "<span style="color: #ff6b6b;">default</span>": 5
+      }
+    },
+    "<span style="color: #51cf66;">required</span>": ["query"]
+  }
+}
+        </pre>
+      </div>
+
+      <div class="card" style="background: linear-gradient(135deg, rgba(233, 69, 96, 0.05) 0%, rgba(22, 33, 62, 0.3) 100%); margin-top: 30px;">
+        <h4 style="color: var(--accent);">🎮 5. Controlador de Execução</h4>
+        <p><strong>Função:</strong> Orquestrar o ciclo de vida do agente e coordenar a interação entre todos os componentes.</p>
+
+        <h5 style="margin-top: 20px; color: var(--highlight);">Loop de Controle Principal</h5>
+        <pre style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.85rem; overflow-x: auto;">
+<span style="color: #51cf66;">while</span> not task_completed and iterations < max_iterations:
+    <span style="color: #a8a8b8;">// 1. PERCEPÇÃO</span>
+    perception = perceptual_system.perceive(environment)
+
+    <span style="color: #a8a8b8;">// 2. RECUPERAÇÃO DE CONTEXTO</span>
+    context = knowledge_base.retrieve_relevant_context(perception)
+
+    <span style="color: #a8a8b8;">// 3. RACIOCÍNIO</span>
+    decision = reasoning_engine.decide(perception, context)
+
+    <span style="color: #a8a8b8;">// 4. AÇÃO</span>
+    <span style="color: #51cf66;">if</span> decision.type == "tool_call":
+        result = action_system.execute_tool(decision.tool, decision.params)
+    <span style="color: #51cf66;">elif</span> decision.type == "response":
+        result = decision.response
+        task_completed = True
+
+    <span style="color: #a8a8b8;">// 5. AVALIAÇÃO & ATUALIZAÇÃO</span>
+    knowledge_base.update_working_memory(perception, decision, result)
+
+    <span style="color: #a8a8b8;">// 6. VERIFICAÇÃO DE CRITÉRIOS DE PARADA</span>
+    <span style="color: #51cf66;">if</span> should_stop(result, iterations):
+        task_completed = True
+
+    iterations += 1
+        </pre>
+
+        <h5 style="margin-top: 25px; color: var(--highlight);">Responsabilidades do Controlador:</h5>
+        <ul>
+          <li><strong>Gestão de Recursos:</strong>
+            <ul>
+              <li>Monitoramento de uso de tokens (evitar estouro de context window)</li>
+              <li>Rate limiting de chamadas a APIs externas</li>
+              <li>Timeout management (abortar operações muito longas)</li>
+              <li>Memory management (limpeza de contexto quando necessário)</li>
+            </ul>
+          </li>
+          <li><strong>Tratamento de Erros:</strong>
+            <ul>
+              <li>Retry policies com backoff exponencial</li>
+              <li>Fallback strategies (ferramentas alternativas)</li>
+              <li>Circuit breaker para falhas repetidas</li>
+              <li>Graceful degradation</li>
+            </ul>
+          </li>
+          <li><strong>Observabilidade:</strong>
+            <ul>
+              <li>Logging estruturado de todas as operações</li>
+              <li>Tracing distribuído para debugging</li>
+              <li>Métricas de performance (latência, custos, qualidade)</li>
+              <li>Checkpointing para recuperação de estado</li>
+            </ul>
+          </li>
+          <li><strong>Controle de Fluxo:</strong>
+            <ul>
+              <li>Limitação de iterações (evitar loops infinitos)</li>
+              <li>Validação de outputs antes de ações destrutivas</li>
+              <li>Escalação para supervisão humana quando necessário</li>
+              <li>Abort conditions para situações anômalas</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <hr style="border: 1px solid var(--border); margin: 50px 0;">
+
+      <h4>1.3 Large Language Models (LLMs)</h4>
+
+      <div class="info-box">
+        <h4>O que são Large Language Models?</h4>
+        <p>Large Language Models (LLMs) são redes neurais profundas treinadas em vastas quantidades de texto para prever e gerar linguagem natural. São a base tecnológica que permite a capacidade de raciocínio dos agentes modernos de IA.</p>
+      </div>
+
+      <h5 style="margin-top: 25px; color: var(--highlight);">Fundamentos Técnicos</h5>
+
+      <div class="card" style="background: var(--secondary);">
+        <h5>Arquitetura Transformer</h5>
+        <p>Todos os LLMs modernos são baseados na arquitetura Transformer (Vaswani et al., 2017):</p>
+
+        <pre style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.85rem; overflow-x: auto; margin-top: 15px;">
+<span style="color: #a8a8b8;">Input: "O agente de IA processou"</span>
+
+<span style="color: #ffd369;">1. Tokenização:</span>
+   ["O", "agente", "de", "IA", "processou"] → [42, 1521, 34, 891, 3421]
+
+<span style="color: #ffd369;">2. Embeddings:</span>
+   Cada token → vetor de dimensão d (ex: 4096)
+
+<span style="color: #ffd369;">3. Positional Encoding:</span>
+   Adiciona informação de posição aos embeddings
+
+<span style="color: #ffd369;">4. Camadas Transformer (repetidas N vezes):</span>
+   ┌──────────────────────────────┐
+   │  Multi-Head Self-Attention   │ ← Captura dependências entre tokens
+   └──────────────────────────────┘
+   ┌──────────────────────────────┐
+   │  Feed-Forward Network        │ ← Transformação não-linear
+   └──────────────────────────────┘
+
+<span style="color: #ffd369;">5. Output:</span>
+   Distribuição de probabilidade sobre vocabulário → próximo token
+   "a" (0.32), "os" (0.25), "as" (0.18), "informações" (0.12)...
+        </pre>
+
+        <h5 style="margin-top: 20px;">Componentes-Chave:</h5>
+        <ul>
+          <li><strong>Self-Attention Mechanism:</strong> Permite que cada token "preste atenção" a todos os outros tokens na sequência, capturando dependências de longo alcance</li>
+          <li><strong>Multi-Head Attention:</strong> Múltiplos mecanismos de atenção em paralelo, cada um focando em diferentes aspectos semânticos</li>
+          <li><strong>Layer Normalization & Residual Connections:</strong> Estabilizam treinamento de redes muito profundas</li>
+          <li><strong>Feed-Forward Networks:</strong> Transformações não-lineares que processam informação de cada posição independentemente</li>
+        </ul>
+      </div>
+
+      <h5 style="margin-top: 30px; color: var(--highlight);">Panorama de Modelos Principais</h5>
+
+      <table style="margin-top: 15px;">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Desenvolvedor</th>
+            <th>Parâmetros</th>
+            <th>Context Window</th>
+            <th>Características Principais</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GPT-4 Turbo</strong></td>
+            <td>OpenAI</td>
+            <td>~1.7T (estimado)</td>
+            <td>128K tokens</td>
+            <td>Multimodal (texto + visão), function calling avançado, reasoning forte</td>
+          </tr>
+          <tr>
+            <td><strong>Claude 3.5 Sonnet</strong></td>
+            <td>Anthropic</td>
+            <td>Não divulgado</td>
+            <td>200K tokens</td>
+            <td>Context window gigante, seguir instruções precisamente, análise de código</td>
+          </tr>
+          <tr>
+            <td><strong>Gemini 1.5 Pro</strong></td>
+            <td>Google</td>
+            <td>Não divulgado</td>
+            <td>1M tokens</td>
+            <td>Context window massivo, multimodal nativo, integração com Google Search</td>
+          </tr>
+          <tr>
+            <td><strong>LLaMA 3</strong></td>
+            <td>Meta</td>
+            <td>8B - 70B</td>
+            <td>8K - 32K tokens</td>
+            <td>Open source, eficiente, ótimo para fine-tuning</td>
+          </tr>
+          <tr>
+            <td><strong>Mistral Large</strong></td>
+            <td>Mistral AI</td>
+            <td>~70B</td>
+            <td>32K tokens</td>
+            <td>Open source, excelente cost-benefit, multilingual</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="grid" style="margin-top: 30px;">
+        <div class="concept-box">
+          <h5 style="color: var(--accent-light);">✅ Capacidades dos LLMs</h5>
+          <ul style="font-size: 0.9rem; margin-top: 10px;">
+            <li><strong>Compreensão Contextual:</strong> Entender nuances, contexto, intenções</li>
+            <li><strong>Geração Coerente:</strong> Produzir texto fluente e contextualmente apropriado</li>
+            <li><strong>Raciocínio:</strong> Realizar inferências lógicas, resolver problemas</li>
+            <li><strong>Few-Shot Learning:</strong> Aprender de poucos exemplos no prompt</li>
+            <li><strong>Multilinguismo:</strong> Operar em dezenas de idiomas</li>
+            <li><strong>Code Understanding:</strong> Compreender e gerar código em múltiplas linguagens</li>
+            <li><strong>Instruction Following:</strong> Seguir instruções complexas e estruturadas</li>
+          </ul>
+        </div>
+
+        <div class="concept-box">
+          <h5 style="color: var(--accent);">❌ Limitações dos LLMs</h5>
+          <ul style="font-size: 0.9rem; margin-top: 10px;">
+            <li><strong>Alucinações:</strong> Gerar informações plausíveis mas falsas</li>
+            <li><strong>Knowledge Cutoff:</strong> Desatualização (conhecimento até data de treino)</li>
+            <li><strong>Matemática:</strong> Dificuldade com cálculos complexos ou precisos</li>
+            <li><strong>Raciocínio Lógico:</strong> Falhas em problemas multi-step complexos</li>
+            <li><strong>Consistência:</strong> Respostas podem variar para mesma pergunta</li>
+            <li><strong>Context Window:</strong> Limite de tokens processáveis</li>
+            <li><strong>Vieses:</strong> Refletem vieses presentes nos dados de treino</li>
+          </ul>
+        </div>
+      </div>
+
+      <h5 style="margin-top: 30px; color: var(--highlight);">Context Window e Gestão de Tokens</h5>
+
+      <div class="highlight-box">
+        <h5>Conceitos Fundamentais</h5>
+        <ul>
+          <li><strong>Token:</strong> Unidade básica de processamento (palavra, subpalavra ou caractere)
+            <ul>
+              <li>Exemplo: "OpenAI" pode ser 1 ou 2 tokens dependendo do tokenizer</li>
+              <li>Média: ~0.75 tokens por palavra em inglês, ~1.5 em português</li>
+            </ul>
+          </li>
+          <li><strong>Context Window:</strong> Número máximo de tokens que o modelo pode processar simultaneamente
+            <ul>
+              <li>Inclui: system prompt + histórico + mensagem atual + resposta gerada</li>
+              <li>Exemplo: GPT-4 Turbo (128K) ≈ ~96.000 palavras ou ~200 páginas</li>
+            </ul>
+          </li>
+          <li><strong>Custo por Token:</strong> Modelos cobram por tokens processados
+            <ul>
+              <li>Input tokens (você envia) geralmente mais baratos</li>
+              <li>Output tokens (modelo gera) geralmente ~2-3x mais caros</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" style="background: var(--secondary); margin-top: 20px;">
+        <h5>Estratégias de Gestão de Contexto</h5>
+
+        <table style="margin-top: 15px;">
+          <thead>
+            <tr>
+              <th>Estratégia</th>
+              <th>Quando Usar</th>
+              <th>Prós/Contras</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Truncation</strong></td>
+              <td>Contexto simples, não crítico manter todo histórico</td>
+              <td>✅ Simples<br>❌ Perda de informação</td>
+            </tr>
+            <tr>
+              <td><strong>Summarization</strong></td>
+              <td>Conversas longas, necessário manter essência</td>
+              <td>✅ Mantém informação importante<br>❌ Custo adicional de summarização</td>
+            </tr>
+            <tr>
+              <td><strong>Sliding Window</strong></td>
+              <td>Processamento de streams longos</td>
+              <td>✅ Eficiente<br>❌ Pode perder contexto distante</td>
+            </tr>
+            <tr>
+              <td><strong>RAG</strong></td>
+              <td>Grande base de conhecimento externa</td>
+              <td>✅ Escala para documentos massivos<br>❌ Complexidade adicional</td>
+            </tr>
+            <tr>
+              <td><strong>Hierarchical</strong></td>
+              <td>Documentos estruturados, conhecimento hierárquico</td>
+              <td>✅ Preserva estrutura<br>❌ Requer pré-processamento</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h5 style="margin-top: 25px;">Exemplo: Implementação de Sliding Window</h5>
+        <pre style="background: var(--code-bg); padding: 15px; border-radius: 8px; font-size: 0.85rem; overflow-x: auto;">
+<span style="color: #51cf66;">class</span> ContextManager:
+    <span style="color: #51cf66;">def</span> __init__(self, max_tokens=4000):
+        self.max_tokens = max_tokens
+        self.messages = []
+        self.system_prompt_tokens = 0
+
+    <span style="color: #51cf66;">def</span> <span style="color: #ffd369;">add_message</span>(self, role, content):
+        tokens = count_tokens(content)
+        self.messages.append({
+            "role": role,
+            "content": content,
+            "tokens": tokens
+        })
+        self._manage_context()
+
+    <span style="color: #51cf66;">def</span> <span style="color: #ffd369;">_manage_context</span>(self):
+        total_tokens = self.system_prompt_tokens + sum(m["tokens"] for m in self.messages)
+
+        <span style="color: #51cf66;">while</span> total_tokens > self.max_tokens and len(self.messages) > 2:
+            <span style="color: #a8a8b8;">// Estratégia: manter primeira e última mensagem, remover do meio</span>
+            <span style="color: #51cf66;">if</span> len(self.messages) > 3:
+                <span style="color: #a8a8b8;">// Remove segunda mensagem (mantém primeira como contexto inicial)</span>
+                removed = self.messages.pop(1)
+                total_tokens -= removed["tokens"]
+            <span style="color: #51cf66;">else</span>:
+                <span style="color: #a8a8b8;">// Se só restam 3, summarize a primeira</span>
+                first_msg = self.messages[0]
+                summary = summarize(first_msg["content"])
+                self.messages[0] = {
+                    "role": first_msg["role"],
+                    "content": summary,
+                    "tokens": count_tokens(summary)
+                }
+                <span style="color: #51cf66;">break</span>
+        </pre>
+      </div>
+
+      <div class="warning-box" style="margin-top: 30px;">
+        <h5>⚡ Otimização de Custos e Performance</h5>
+        <ul>
+          <li><strong>Modelo Adequado ao Problema:</strong> Use modelos menores/baratos para tarefas simples (classificação, extração), modelos grandes para raciocínio complexo</li>
+          <li><strong>Prompt Optimization:</strong> Remova verbosidade desnecessária, use structured outputs quando possível</li>
+          <li><strong>Caching:</strong> Cache de prompts (algumas APIs oferecem) e respostas para queries frequentes</li>
+          <li><strong>Batching:</strong> Agrupe operações similares para reduzir overhead</li>
+          <li><strong>Streaming:</strong> Use streaming para reduzir latência percebida pelo usuário</li>
+          <li><strong>Monitoring:</strong> Rastreie uso de tokens, custos e latências para identificar otimizações</li>
+        </ul>
+      </div>
+
+      <div class="info-box" style="margin-top: 30px;">
+        <h5>🎯 Comparação de Custos (Referência Aproximada - 2024)</h5>
+        <table style="margin-top: 15px; font-size: 0.9rem;">
+          <thead>
+            <tr>
+              <th>Modelo</th>
+              <th>Input ($/1M tokens)</th>
+              <th>Output ($/1M tokens)</th>
+              <th>Caso de Uso Ideal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GPT-4 Turbo</td>
+              <td>$10</td>
+              <td>$30</td>
+              <td>Raciocínio complexo, análise crítica</td>
+            </tr>
+            <tr>
+              <td>GPT-3.5 Turbo</td>
+              <td>$0.50</td>
+              <td>$1.50</td>
+              <td>Tarefas gerais, chatbots, classificação</td>
+            </tr>
+            <tr>
+              <td>Claude 3.5 Sonnet</td>
+              <td>$3</td>
+              <td>$15</td>
+              <td>Análise de código, seguir instruções precisas</td>
+            </tr>
+            <tr>
+              <td>Gemini 1.5 Pro</td>
+              <td>$3.50</td>
+              <td>$10.50</td>
+              <td>Documentos longos, multimodal</td>
+            </tr>
+            <tr>
+              <td>LLaMA 3 70B (self-hosted)</td>
+              <td>Custo de infra</td>
+              <td>Custo de infra</td>
+              <td>Volume alto, privacidade, fine-tuning</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="card">
