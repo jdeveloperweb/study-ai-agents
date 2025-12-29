@@ -2795,7 +2795,7 @@ Agente:
   // Animate elements on scroll
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '50px 0px -50px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -2812,6 +2812,15 @@ Agente:
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
+
+    // Trigger immediate check for elements already in viewport
+    setTimeout(() => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }
+    }, 100);
   });
 </script>
 </body>
